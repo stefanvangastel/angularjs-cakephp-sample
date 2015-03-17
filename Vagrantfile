@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
   app_name = 'cake' #File.basename(File.dirname(__FILE__))
   config.vm.network :private_network, ip: "192.168.100.2" 
   config.vm.synced_folder src_dir, "/vagrant_data", :create => true, :owner=> 'vagrant', :group=>'www-data', :mount_options => ['dmode=775,fmode=775']
-  config.berkshelf.enabled = true
+  #config.berkshelf.enabled = true
   File.open('Berksfile', 'w').write <<-EOS
     cookbook 'apt'
     cookbook 'php5_ppa', git: "https://github.com/yandod/php5_ppa.git", branch: "ondrej"
